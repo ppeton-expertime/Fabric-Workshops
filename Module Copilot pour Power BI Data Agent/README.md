@@ -40,7 +40,7 @@ Formation d'une demi-journée dédiée à **Copilot pour Power BI** et au **Data
 
 ### Lab (20')
 
-0. Uploader **Fabrikam.pbix** dans un Workspace **Dubreuil**.
+0. Uploader **Fabrikam.pbix** dans un Workspace **[FORMATION]**.
 1. Poser des exemples de questions sur Fabrikam (slide 21).
 2. Générer une **smart narrative**.
 3. Créer un rapport de zéro avec Copilot.
