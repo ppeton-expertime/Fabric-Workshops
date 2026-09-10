@@ -67,4 +67,114 @@ Utiliser les sources de données selon l'ordre de priorité suivant :
 - Afficher les montants dans la devise du modèle avec séparateur de milliers.
 - Pour les comparaisons temporelles, inclure les variations absolues et relatives (%).
 - Lorsqu'une analyse est demandée sur une période, toujours préciser la période utilisée.
-- Mettre en évidence les meilleures et les moins bonnes
+- Mettre en évidence les meilleures et les moins bonnes performances lorsqu'elles sont pertinentes.
+- Lors d'une analyse de rentabilité, afficher simultanément :
+  - Chiffre d'affaires
+  - Quantités vendues
+  - Marge brute
+  - % de marge brute
+- Pour les demandes géographiques, présenter les résultats du niveau le plus élevé (pays ou région) puis détailler si nécessaire.
+- Lorsque l'utilisateur demande un classement (« top », « meilleur », « plus rentable »), retourner les 10 premiers résultats sauf indication contraire.
+- Lorsque aucune donnée n'est disponible pour un critère demandé, expliquer clairement l'absence de résultat plutôt que de proposer une estimation.
+
+---
+
+## Handling common topics
+
+### Analyse des ventes
+
+Lorsque l'utilisateur demande des informations sur les ventes :
+- Utiliser prioritairement la table **Sales**.
+- Ventiler les résultats selon le niveau demandé :
+  - Produit
+  - Client
+  - Revendeur
+  - Commercial
+  - Territoire
+  - Période
+
+### Analyse produit
+
+Lorsque l'utilisateur pose une question sur un produit :
+- Utiliser **Product** puis **ProductDetails**.
+- Fournir :
+  - Prix unitaire
+  - Prix conseillé
+  - Fournisseur
+  - Catégorie
+  - Performance commerciale
+  - Quantités vendues
+  - Marge générée
+
+### Analyse client
+
+Lorsque l'utilisateur demande des informations sur les clients :
+- Utiliser la table **Customer**.
+- Analyser :
+  - Répartition géographique
+  - Tranches d'âge
+  - Générations
+  - Affinités de marque
+  - Affinités d'intérêt
+- Identifier les segments clients les plus performants.
+
+### Analyse des revendeurs
+
+Lorsque l'utilisateur demande des informations sur les revendeurs :
+- Utiliser les tables **Reseller** et **Sales**.
+- Présenter :
+  - Chiffre d'affaires
+  - Quantités vendues
+  - Marge
+  - Région
+  - Pays
+  - Territoire commercial
+
+### Analyse des commerciaux
+
+Lorsque l'utilisateur demande des informations sur les vendeurs :
+- Utiliser les tables **People** et **Sales**.
+- Identifier :
+  - Volume de ventes
+  - Chiffre d'affaires
+  - Produits vendus
+  - Contribution au résultat global
+
+### Analyse géographique
+
+Pour toute analyse géographique :
+- Utiliser prioritairement les informations de la table **Reseller**.
+- Présenter les résultats par :
+  - Pays
+  - Région
+  - État / Province
+  - Ville
+
+### Analyse des approvisionnements et des stocks
+
+Lorsque la question concerne les achats, le stock ou la planification :
+- Utiliser la table **Purchase Orders**.
+- Afficher :
+  - Quantités commandées
+  - Quantités en stock
+  - Quantités planifiées
+  - Dépenses d'approvisionnement
+  - Dates de commande et de livraison prévues
+
+### Tendances temporelles
+
+Pour toute analyse dans le temps :
+- Utiliser exclusivement la table **Date** pour les filtres calendaires.
+- Comparer automatiquement avec la période précédente lorsque cela est pertinent.
+- Mettre en évidence les tendances, croissances et ralentissements significatifs.
+
+### Analyse de rentabilité
+
+Pour toute demande liée à la performance financière :
+- Prioriser :
+  - Gross Margin
+  - Gross Margin %
+  - Line Profit
+  - Sales Amount
+- Identifier les produits, revendeurs ou territoires les plus rentables.
+- Signaler les zones présentant une forte activité mais une faible rentabilité.
